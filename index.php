@@ -1,3 +1,14 @@
+<?php
+
+require 'php/admin/db.php';
+
+$sql = $pdo->prepare("SELECT * FROM villes");
+$sql->execute();
+$villes = $sql->fetchAll();
+$villes_json = json_encode($villes);
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -22,7 +33,9 @@
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -226,7 +239,9 @@
     <!-- end of features -->
 
     <!-- Description -->
-    <div id="maCarte" style="width: 200px"></div>
+    <div id="maCarte" class="d-block mx-auto m-5">
+
+    </div>
     <!-- end of description -->
 
     <!-- Newsletter -->
@@ -291,15 +306,6 @@
         </div> <!-- end of container -->
     </div> <!-- end of copyright --> 
     <!-- end of copyright -->
-
-    <?php
-require 'php/admin/db.php';
-
-$sql = $pdo->prepare("SELECT * FROM villes");
-    $sql->execute();
-    $villes = $sql->fetchAll();
-    $villes_json = json_encode($villes);
-    ?>
 
     <script type="text/javascript">
 

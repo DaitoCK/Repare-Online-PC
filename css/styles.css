@@ -51,12 +51,9 @@ body {
 	overflow-x: hidden;
 }
 
-#macarte {
-	max-height: 100px;
-	max-width: 100px;
-
-
-
+#maCarte {
+	height: 600px;
+	width: 75%;
 }
 
 body, p {
